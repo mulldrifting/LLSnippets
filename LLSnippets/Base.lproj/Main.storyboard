@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
@@ -66,18 +67,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4PZ-0D-yp2">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="20" y="0.0" width="560" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C0l-gU-rMO">
+                                <rect key="frame" x="20" y="0.0" width="560" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="C0l-gU-rMO" firstAttribute="trailing" secondItem="4PZ-0D-yp2" secondAttribute="trailing" id="1bx-Ks-HpZ"/>
                             <constraint firstItem="4PZ-0D-yp2" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="8Wv-OP-a4U"/>
-                            <constraint firstAttribute="trailing" secondItem="4PZ-0D-yp2" secondAttribute="trailing" id="MSS-Hx-gnu"/>
-                            <constraint firstItem="4PZ-0D-yp2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="VTn-MJ-Kj2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4PZ-0D-yp2" secondAttribute="trailing" id="MSS-Hx-gnu"/>
+                            <constraint firstItem="4PZ-0D-yp2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="VTn-MJ-Kj2"/>
+                            <constraint firstItem="C0l-gU-rMO" firstAttribute="leading" secondItem="4PZ-0D-yp2" secondAttribute="leading" id="jgE-0j-74H"/>
+                            <constraint firstItem="C0l-gU-rMO" firstAttribute="bottom" secondItem="4PZ-0D-yp2" secondAttribute="bottom" id="l8e-14-dHO"/>
+                            <constraint firstItem="C0l-gU-rMO" firstAttribute="top" secondItem="4PZ-0D-yp2" secondAttribute="top" id="rQ3-1V-PJf"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="4PZ-0D-yp2" secondAttribute="bottom" id="tv4-F4-FZe"/>
                         </constraints>
                     </view>
@@ -98,6 +107,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="copyButton" destination="uIk-jl-d75" id="x3D-kj-Tpb"/>
+                        <outlet property="overlayView" destination="C0l-gU-rMO" id="j3u-NQ-GKE"/>
                         <outlet property="pasteButton" destination="TGO-Jt-gyN" id="QhU-Wn-IPs"/>
                         <outlet property="textView" destination="4PZ-0D-yp2" id="hSL-1a-DgT"/>
                     </connections>

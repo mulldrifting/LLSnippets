@@ -16,26 +16,42 @@ class LLTextViewController: UIViewController {
     var snippet : Snippet = Snippet()
     var delegate : LLTextViewControllerDelegate?
     
+    @IBOutlet weak var overlayView: UIView!
     @IBOutlet private weak var textView: UITextView!
     @IBOutlet private weak var copyButton: UIBarButtonItem!
     @IBOutlet private weak var pasteButton: UIBarButtonItem!
     
+    private let maxNameLength = 20
     private let pasteboard = UIPasteboard.generalPasteboard()
+    private let longPress = UILongPressGestureRecognizer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         navigationItem.backBarButtonItem?.title = ""
+        
         textView.delegate = self
+        textView.userInteractionEnabled = false
         textView.text = snippet.text
         updateTitle()
+        
+        longPress.addTarget(self, action: "longPressRecognized")
+        overlayView.addGestureRecognizer(longPress)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        resetKeyboard()
     }
 
     @IBAction func copyTapped(sender: AnyObject) {
         pasteboard.string = textView.text
+        resetKeyboard()
     }
     
     @IBAction func pasteTapped(sender: AnyObject) {
+        resetKeyboard()
+        
         if let pasteString = pasteboard.string {
             
             let currentText = textView.text
@@ -46,7 +62,7 @@ class LLTextViewController: UIViewController {
                 addedText.appendContentsOf("\n\n")
             }
             else if snippet.isNew {
-                let range = Range<String.Index>(start: trimmedString.startIndex, end: trimmedString.startIndex.advancedBy(15, limit: trimmedString.endIndex))
+                let range = Range<String.Index>(start: trimmedString.startIndex, end: trimmedString.startIndex.advancedBy(maxNameLength, limit: trimmedString.endIndex))
                 snippet.name = trimmedString.substringWithRange(range)
                 updateTitle()
             }
@@ -56,6 +72,18 @@ class LLTextViewController: UIViewController {
             textView.text = currentText + addedText
             textChanged(textView.text)
         }
+    }
+    
+    func longPressRecognized() {
+        textView.userInteractionEnabled = true
+        textView.becomeFirstResponder()
+        overlayView.userInteractionEnabled = false
+    }
+    
+    private func resetKeyboard() {
+        textView.userInteractionEnabled = false
+        textView.resignFirstResponder()
+        overlayView.userInteractionEnabled = true
     }
     
     private func updateTitle() {
