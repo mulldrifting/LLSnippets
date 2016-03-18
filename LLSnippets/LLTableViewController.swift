@@ -16,7 +16,6 @@ class LLTableViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        snippetNames.append("Let it go")
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -24,6 +23,7 @@ class LLTableViewController : UIViewController {
             if let textViewController = segue.destinationViewController as? LLTextViewController {
                 if let indexPath = tableView.indexPathForSelectedRow {
                     textViewController.snippet = snippets.snippetAtIndex(indexPath.row)
+                    textViewController.delegate = self
                 }
             }
         }
@@ -43,5 +43,16 @@ extension LLTableViewController : UITableViewDelegate, UITableViewDataSource {
         cell.textLabel?.text = snippet.name
         
         return cell
+    }
+}
+
+extension LLTableViewController : LLTextViewControllerDelegate {
+    func snippetChanged(snippet: Snippet) {
+        snippets.updateSnippet(snippet)
+        if snippet.wasChangedForFirstTime {
+            snippet.wasChangedForFirstTime = false
+            snippets.addNewSnippet()
+            tableView.reloadData()
+        }
     }
 }

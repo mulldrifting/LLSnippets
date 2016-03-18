@@ -42,7 +42,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Snippets" id="MqQ-tx-OXd"/>
+                    <navigationItem key="navigationItem" title="Snippets" id="MqQ-tx-OXd">
+                        <barButtonItem key="backBarButtonItem" title=" " id="2tf-Jg-7mv"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="in4-jZ-rJx" id="9lW-i3-fIe"/>
                     </connections>
@@ -80,6 +82,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qwc-6S-21L">
+                        <barButtonItem key="backBarButtonItem" title=" " id="u4W-vp-T7c"/>
                         <rightBarButtonItems>
                             <barButtonItem title="Paste" id="TGO-Jt-gyN">
                                 <connections>

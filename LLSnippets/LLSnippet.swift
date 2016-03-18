@@ -10,25 +10,10 @@ import Foundation
 
 class Snippet : NSObject {
     var index : Int
-    var name : String {
-        set {
-            save()
-            self.name = newValue
-        }
-        get {
-            return self.name
-        }
-    }
-    
-    var text : String {
-        set {
-            save()
-            self.text = newValue
-        }
-        get {
-            return self.text
-        }
-    }
+    var name : String  = ""
+    var text : String = ""
+    var isNew : Bool = true
+    var wasChangedForFirstTime : Bool = false
     
     override init() {
         self.index = 0
@@ -42,9 +27,5 @@ class Snippet : NSObject {
         
         self.name = name
         self.text = text
-    }
-    
-    func save() {
-        
     }
 }
