@@ -18,7 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FE34A62B1C9B864100B23B0A /* LLSnippets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LLSnippets.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE34A62B1C9B864100B23B0A /* Snippets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snippets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE34A62E1C9B864100B23B0A /* LLAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLAppDelegate.swift; sourceTree = "<group>"; };
 		FE34A6301C9B864100B23B0A /* LLTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLTextViewController.swift; sourceTree = "<group>"; };
 		FE34A6331C9B864100B23B0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -52,7 +52,7 @@
 		FE34A62C1C9B864100B23B0A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FE34A62B1C9B864100B23B0A /* LLSnippets.app */,
+				FE34A62B1C9B864100B23B0A /* Snippets.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -90,7 +90,7 @@
 			);
 			name = LLSnippets;
 			productName = LLSnippets;
-			productReference = FE34A62B1C9B864100B23B0A /* LLSnippets.app */;
+			productReference = FE34A62B1C9B864100B23B0A /* Snippets.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -267,7 +267,7 @@
 				INFOPLIST_FILE = LLSnippets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mulldrifting.LLSnippets;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Snippets;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -281,7 +281,7 @@
 				INFOPLIST_FILE = LLSnippets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mulldrifting.LLSnippets;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Snippets;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
