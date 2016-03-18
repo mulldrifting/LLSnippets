@@ -9,15 +9,20 @@
 import UIKit
 
 class LLTextViewController: UIViewController {
-    @IBOutlet weak var textView: UITextView!
-    @IBOutlet weak var copyButton: UIBarButtonItem!
-    @IBOutlet weak var pasteButton: UIBarButtonItem!
+    var snippetName : String = ""
+    var snippetText : String = ""
+    var snippet : Snippet = Snippet()
     
-    let pasteboard = UIPasteboard.generalPasteboard()
-
+    @IBOutlet private weak var textView: UITextView!
+    @IBOutlet private weak var copyButton: UIBarButtonItem!
+    @IBOutlet private weak var pasteButton: UIBarButtonItem!
+    
+    private let pasteboard = UIPasteboard.generalPasteboard()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationItem.title = snippetName
         textView.text = ""
     }
 

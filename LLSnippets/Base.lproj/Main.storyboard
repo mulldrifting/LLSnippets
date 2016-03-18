@@ -3,12 +3,58 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Snippets-->
+        <scene sceneID="dOA-n0-oIR">
+            <objects>
+                <viewController storyboardIdentifier="tableVC" id="aR1-AE-4l6" customClass="LLTableViewController" customModule="LLSnippets" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="o8x-cn-SVb"/>
+                        <viewControllerLayoutGuide type="bottom" id="sIx-p5-lLr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xg9-qm-cYi">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="in4-jZ-rJx">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="snippetCell" id="eYR-Ak-XrU">
+                                        <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eYR-Ak-XrU" id="nLz-kp-oTf">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="segueToTextVC" id="qkg-RX-Et3"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="aR1-AE-4l6" id="fxR-Ts-XUp"/>
+                                    <outlet property="delegate" destination="aR1-AE-4l6" id="FKY-sI-ZnV"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Snippets" id="MqQ-tx-OXd"/>
+                    <connections>
+                        <outlet property="tableView" destination="in4-jZ-rJx" id="9lW-i3-fIe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eDh-2E-PgG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1028" y="-381"/>
+        </scene>
+        <!--Text View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LLTextViewController" customModule="LLSnippets" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="textVC" id="BYZ-38-t0r" customClass="LLTextViewController" customModule="LLSnippets" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -33,17 +79,19 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="4PZ-0D-yp2" secondAttribute="bottom" id="tv4-F4-FZe"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Snippets" id="qwc-6S-21L">
-                        <barButtonItem key="leftBarButtonItem" title="Copy" id="uIk-jl-d75">
-                            <connections>
-                                <action selector="copyTapped:" destination="BYZ-38-t0r" id="koP-mq-jLI"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Paste" id="TGO-Jt-gyN">
-                            <connections>
-                                <action selector="pasteTapped:" destination="BYZ-38-t0r" id="rjT-6I-lif"/>
-                            </connections>
-                        </barButtonItem>
+                    <navigationItem key="navigationItem" id="qwc-6S-21L">
+                        <rightBarButtonItems>
+                            <barButtonItem title="Paste" id="TGO-Jt-gyN">
+                                <connections>
+                                    <action selector="pasteTapped:" destination="BYZ-38-t0r" id="rjT-6I-lif"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Copy" id="uIk-jl-d75">
+                                <connections>
+                                    <action selector="copyTapped:" destination="BYZ-38-t0r" id="koP-mq-jLI"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="copyButton" destination="uIk-jl-d75" id="x3D-kj-Tpb"/>
@@ -53,7 +101,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="990" y="-381"/>
+            <point key="canvasLocation" x="1724" y="-381"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="r6d-cX-har">
@@ -66,7 +114,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="csH-EK-264"/>
+                        <segue destination="aR1-AE-4l6" kind="relationship" relationship="rootViewController" id="MQn-uL-qjK"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jm8-lg-pj1" userLabel="First Responder" sceneMemberID="firstResponder"/>
